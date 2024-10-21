@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Handle everything related to controlling the character. Interact with both the Character (visual, animation) and CharacterCollider
@@ -63,6 +64,7 @@ public class CharacterInputController : MonoBehaviour
 	protected float m_SlideStart;
 
 	protected AudioSource m_Audio;
+	private InputAction moveAction;
 
     protected int m_CurrentLane = k_StartingLane;
     protected Vector3 m_TargetPosition = Vector3.zero;
@@ -83,6 +85,8 @@ public class CharacterInputController : MonoBehaviour
         m_Sliding = false;
         m_SlideStart = 0.0f;
 	    m_IsRunning = false;
+	    
+	    moveAction = InputSystem.actions.FindAction("Move");
     }
 
 #if !UNITY_STANDALONE
@@ -175,29 +179,40 @@ public class CharacterInputController : MonoBehaviour
         return (!TrackManager.instance.isTutorial || currentTutorialLevel >= tutorialLevel);
     }
 
+
+    private void Start()
+    {
+	    moveAction = InputSystem.actions.FindAction("Move");
+    }
+    
 	protected void Update ()
     {
 #if UNITY_EDITOR || UNITY_STANDALONE
         // Use key input in editor or standalone
         // disabled if it's tutorial and not thecurrent right tutorial level (see func TutorialMoveCheck)
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && TutorialMoveCheck(0))
+        Vector2 moveValue = moveAction.ReadValue<Vector2>();
+       
+        if (moveAction.WasPressedThisFrame())
         {
-            ChangeLane(-1);
+	        if (moveValue.x < 0 && TutorialMoveCheck(0))
+	        {
+		        ChangeLane(-1);
+	        }
+	        else if (moveValue.x > 0 && TutorialMoveCheck(0))
+	        {
+		        ChangeLane(1);
+	        }
+	        else if (moveValue.y > 0 && TutorialMoveCheck(1))
+	        {
+		        Jump();
+	        }
+	        else if (moveValue.y < 0 && TutorialMoveCheck(2))
+	        {
+		        if (!m_Sliding)
+			        Slide();
+	        }
         }
-        else if(Input.GetKeyDown(KeyCode.RightArrow) && TutorialMoveCheck(0))
-        {
-            ChangeLane(1);
-        }
-        else if(Input.GetKeyDown(KeyCode.UpArrow) && TutorialMoveCheck(1))
-        {
-            Jump();
-        }
-		else if (Input.GetKeyDown(KeyCode.DownArrow) && TutorialMoveCheck(2))
-		{
-			if(!m_Sliding)
-				Slide();
-		}
 #else
         // Use touch input on mobile
         if (Input.touchCount == 1)
