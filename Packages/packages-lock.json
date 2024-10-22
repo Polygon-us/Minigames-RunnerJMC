@@ -7,7 +7,7 @@
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "09108b5e85bc5f7a92356616081eaae4cb7a989f"
+      "hash": "fc01e73671cf6013621484181ec622fc02203b8e"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
