@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apiPaths: {fileID: 11400000, guid: 84e59ac36354bc64fbc52059e8526bf6, type: 2}
-  apiConfig: {fileID: 11400000, guid: d7df674de9cf03745a2c7cb2ba1b13d8, type: 2}
-  gameConfig: {fileID: 0}
+  apiConfig: {fileID: 11400000, guid: 95a99a2f8294bcb46a9d11e81702aafc, type: 2}
+  gameConfig: {fileID: 11400000, guid: a17fb658d4e2e724e81e52cf0c841d61, type: 2}

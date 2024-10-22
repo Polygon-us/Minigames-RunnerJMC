@@ -75,10 +75,9 @@ public class RestApiManager : APIManager
         transport?.SignOut();
     }
 
-    private string PathWithArgs(string path, string[] args)
+    private static string PathWithArgs(string path, string[] args)
     {
-        string pathWithArgs = path + (args != null ? $"?{string.Join("&", args)}" : "");
-        return pathWithArgs;
+        return path + (args != null ? $"?{string.Join("&", args)}" : "");
     }
 }
 
