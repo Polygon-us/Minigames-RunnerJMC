@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c434ed4a30841c7be2577f58c140689, type: 3}
   m_Name: APIConfig
   m_EditorClassIdentifier: 
-  targetEnvironment: 0
+  currentEnvironment: 3
   settings:
     timeout: 10
     maxRetryAttempts: 3
@@ -20,11 +20,5 @@ MonoBehaviour:
     jsonContentType: application/json
   bearerToken: 
   environments:
-  - environmentType: 0
-    key: 
-  - environmentType: 1
-    key: 
-  - environmentType: 2
-    key: 
-  - environmentType: 3
-    key: 
+  - environment: {fileID: 11400000, guid: 736ac1cd710c8d543b4a28dcfa583cb2, type: 2}
+  - environment: {fileID: 11400000, guid: 524a495b6b18e12468a28c587d298941, type: 2}
