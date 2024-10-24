@@ -1,27 +1,13 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "PickupMission", menuName = "Mission/Pickup", order = 1)]
 public class PickupMission : MissionBase
 {
     int previousCoinAmount;
 
-    public override void Created()
-    {
-        float[] maxValues = { 1000, 2000, 3000, 4000 };
-        int chosen = Random.Range(0, maxValues.Length);
-
-        max = maxValues[chosen];
-        reward = chosen + 1;
-        progress = 0;
-    }
-
     public override string GetMissionDesc()
     {
-        return "Pickup " + max + " fishbones";
-    }
-
-    public override MissionType GetMissionType()
-    {
-        return MissionType.PICKUP;
+        return $"Pickup {missionObjectives.GetCurrentObjective().Objective} fishbones";
     }
 
     public override void RunStart(TrackManager manager)
@@ -29,10 +15,11 @@ public class PickupMission : MissionBase
         previousCoinAmount = 0;
     }
 
-    public override void Update(TrackManager manager)
+    public override void UpdateMission(TrackManager manager)
     {
         int coins = manager.characterController.coins - previousCoinAmount;
-        progress += coins;
+       
+        missionObjectives.AdvanceObjective(coins);
 
         previousCoinAmount = manager.characterController.coins;
     }

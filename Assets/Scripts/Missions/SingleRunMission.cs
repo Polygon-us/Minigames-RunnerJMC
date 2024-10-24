@@ -1,17 +1,8 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "SingleRunMission", menuName = "Mission/SingleRun", order = 1)]
 public class SingleRunMission : MissionBase
 {
-    public override void Created()
-    {
-        float[] maxValues = { 500, 1000, 1500, 2000 };
-        int chosenVal = Random.Range(0, maxValues.Length);
-
-        reward = chosenVal + 1;
-        max = maxValues[chosenVal];
-        progress = 0;
-    }
-
     public override bool HaveProgressBar()
     {
         return false;
@@ -19,21 +10,16 @@ public class SingleRunMission : MissionBase
 
     public override string GetMissionDesc()
     {
-        return "Run " + ((int)max) + "m in a single run";
-    }
-
-    public override MissionType GetMissionType()
-    {
-        return MissionType.SINGLE_RUN;
+        return $"Run {missionObjectives.GetCurrentObjective().Objective}m in a single run";
     }
 
     public override void RunStart(TrackManager manager)
     {
-        progress = 0;
+        // progress = 0;
     }
 
-    public override void Update(TrackManager manager)
+    public override void UpdateMission(TrackManager manager)
     {
-        progress = manager.worldDistance;
+        missionObjectives.AdvanceObjective((int)manager.worldDistance);
     }
 }

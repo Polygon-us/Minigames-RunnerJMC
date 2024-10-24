@@ -15,9 +15,9 @@ public class MissionEntry : MonoBehaviour
     public void FillWithMission(MissionBase m, MissionUI owner)
     {
         descText.text = m.GetMissionDesc();
-        rewardText.text = m.reward.ToString();
+        rewardText.text = m.MissionObjectives.GetCurrentObjective().Reward.ToString();
 
-        if (m.isComplete)
+        if (m.IsComplete)
         {
             claimButton.gameObject.SetActive(true);
             progressText.gameObject.SetActive(false);
@@ -40,7 +40,7 @@ public class MissionEntry : MonoBehaviour
 			progressText.color = Color.black;
 			descText.color = completedColor;
 
-			progressText.text = ((int)m.progress) + " / " + ((int)m.max);
+			progressText.text = $"{m.MissionObjectives.GetCurrentObjective().Progress} / {m.MissionObjectives.GetCurrentObjective().Objective}";
         }
     }
 }

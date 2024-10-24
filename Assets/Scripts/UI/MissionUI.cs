@@ -55,7 +55,7 @@ public class MissionUI : MonoBehaviour
 
     public void Claim(MissionBase m)
     {
-        PlayerData.instance.ClaimMission(m);
+        MissionManager.Instance.ClaimMission(m);
 
         // Rebuild the UI with the new missions
         StartCoroutine(Open());

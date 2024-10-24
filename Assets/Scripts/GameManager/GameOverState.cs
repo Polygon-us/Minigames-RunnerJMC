@@ -30,7 +30,7 @@ public class GameOverState : AState
 		miniLeaderboard.playerEntry.score.text = trackManager.score.ToString();
 		miniLeaderboard.Populate();
 
-        if (PlayerData.instance.AnyMissionComplete())
+        if (MissionManager.Instance.AnyMissionComplete())
             StartCoroutine(missionPopup.Open());
         else
             missionPopup.gameObject.SetActive(false);

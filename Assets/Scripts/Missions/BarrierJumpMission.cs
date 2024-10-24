@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "BarrierJumpMission", menuName = "Mission/BarrierJump", order = 1)]
 public class BarrierJumpMission : MissionBase
 {
     Obstacle m_Previous;
@@ -8,24 +9,9 @@ public class BarrierJumpMission : MissionBase
     protected const int k_HitColliderCount = 8;
     protected readonly Vector3 k_CharacterColliderSizeOffset = new Vector3(-0.3f, 2f, -0.3f);
     
-    public override void Created()
-    {
-        float[] maxValues = { 20, 50, 75, 100 };
-        int choosen = Random.Range(0, maxValues.Length);
-
-        max = maxValues[choosen];
-        reward = choosen + 1;
-        progress = 0;
-    }
-
     public override string GetMissionDesc()
     {
-        return "Jump over " + ((int)max) + " barriers";
-    }
-
-    public override MissionType GetMissionType()
-    {
-        return MissionType.OBSTACLE_JUMP;
+        return $"Jump over {missionObjectives.GetCurrentObjective().Objective} barriers";
     }
 
     public override void RunStart(TrackManager manager)
@@ -34,7 +20,7 @@ public class BarrierJumpMission : MissionBase
         m_Hits = new Collider[k_HitColliderCount];
     }
 
-    public override void Update(TrackManager manager)
+    public override void UpdateMission(TrackManager manager)
     {
         if(manager.characterController.isJumping)
         {
@@ -51,7 +37,7 @@ public class BarrierJumpMission : MissionBase
                 {
                     if(obs != m_Previous)
                     {
-                        progress += 1;
+                        missionObjectives.AdvanceObjective(1);
                     }
 
                     m_Previous = obs;
