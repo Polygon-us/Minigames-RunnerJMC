@@ -53,7 +53,7 @@ public class MissionManager : MonoBehaviour
 
     public bool AnyMissionComplete()
     {
-        return missions.Exists(eachMission => eachMission.mission.AreAllObjectivesComplete);
+        return missions.Exists(eachMission => eachMission.mission.IsObjectiveComplete);
     }
 
     public void ClaimMission(MissionBase mission)
