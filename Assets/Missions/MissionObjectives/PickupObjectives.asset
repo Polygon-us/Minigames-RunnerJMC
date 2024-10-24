@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: PickupObjectives
   m_EditorClassIdentifier: 
   objectives:
-  - objective: 100
+  - objective: 500
     reward: 100
-  - objective: 200
+  - objective: 1000
+    reward: 200
+  - objective: 2000
+    reward: 200
+  - objective: 4000
+    reward: 200
+  - objective: 8000
     reward: 200

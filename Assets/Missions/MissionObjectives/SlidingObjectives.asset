@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: SlidingObjectives
   m_EditorClassIdentifier: 
   objectives:
-  - objective: 100
+  - objective: 30
     reward: 100
-  - objective: 200
+  - objective: 60
+    reward: 200
+  - objective: 120
+    reward: 200
+  - objective: 240
+    reward: 200
+  - objective: 480
     reward: 200
