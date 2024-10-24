@@ -6,7 +6,8 @@ public abstract class MissionBase : ScriptableObject
     
     public MissionObjectives MissionObjectives => missionObjectives;
 
-    public bool IsComplete => missionObjectives.IsComplete;
+    public bool IsObjectiveComplete => missionObjectives.IsObjectiveComplete;
+    public bool AreAllObjectivesComplete => missionObjectives.AreAllObjectivesComplete;
 
 	public virtual bool HaveProgressBar() { return true; }
 

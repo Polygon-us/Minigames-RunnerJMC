@@ -2407,6 +2407,60 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a26112fdfc12324d8fee247fbeb44e7, type: 3}
+--- !u!1 &1748781484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1748781486}
+  - component: {fileID: 1748781485}
+  m_Layer: 0
+  m_Name: MissionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1748781485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748781484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f8a71cfca148c8bebbc05378086dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missions:
+  - missionData:
+      objectives:
+      - reward: 100
+        objective: 50
+      - reward: 100
+        objective: 100
+      - reward: 100
+        objective: 150
+    mission: {fileID: 11400000, guid: b58b92804220cbd4c8f4dee3d7e176f4, type: 2}
+--- !u!4 &1748781486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748781484}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1749479337
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,3 +3306,4 @@ SceneRoots:
   - {fileID: 1469358732}
   - {fileID: 288686501}
   - {fileID: 1403182535}
+  - {fileID: 1748781486}

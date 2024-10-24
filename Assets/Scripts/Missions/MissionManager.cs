@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MissionManager : MonoBehaviour
 {
-    public List<MissionAndData> missions = new List<MissionAndData>();
+    public List<MissionAndData> missions = new();
 
     private static MissionManager _instance;
 
@@ -12,22 +12,22 @@ public class MissionManager : MonoBehaviour
     {
         get
         {
+            if (_instance)
+                return _instance;
+            
+            _instance = FindFirstObjectByType<MissionManager>();
+        
             if (!_instance)
-                _instance = Resources.Load<MissionManager>("MissionManager");
+                _instance = Instantiate(Resources.Load<MissionManager>("MissionManager"));
+            
+            DontDestroyOnLoad(_instance.gameObject);
+            
             return _instance;
         }
     }
 
-    // Mission management
-
     // Will add missions until we reach 2 missions.
-    // public void CheckMissionsCount()
-    // {
-    //     while (missions.Count < 2)
-    //         AddMission();
-    // }
-    //
-    public void AddMission()
+    public void StartMissions()
     {
         foreach (var mission in missions)
         {
@@ -37,35 +37,31 @@ public class MissionManager : MonoBehaviour
 
     public void StartRunMissions(TrackManager manager)
     {
-        for (int i = 0; i < missions.Count; ++i)
+        foreach (var mission in missions)
         {
-            missions[i].mission.RunStart(manager);
+            mission.mission.RunStart(manager);
         }
     }
 
     public void UpdateMissions(TrackManager manager)
     {
-        for (int i = 0; i < missions.Count; ++i)
+        foreach (var mission in missions)
         {
-            missions[i].mission.UpdateMission(manager);
+            mission.mission.UpdateMission(manager);
         }
     }
 
     public bool AnyMissionComplete()
     {
-        for (int i = 0; i < missions.Count; ++i)
-        {
-            if (missions[i].mission.IsComplete) return true;
-        }
-
-        return false;
+        return missions.Exists(eachMission => eachMission.mission.AreAllObjectivesComplete);
     }
 
     public void ClaimMission(MissionBase mission)
     {
-        missions.RemoveAll(eachMission => eachMission.mission == mission);
-
-        // CheckMissionsCount();
+        if (!mission.AreAllObjectivesComplete)
+            mission.MissionObjectives.AdvanceToNextObjective();
+        else
+            missions.RemoveAll(eachMission => eachMission.mission == mission);
     }
 }
 

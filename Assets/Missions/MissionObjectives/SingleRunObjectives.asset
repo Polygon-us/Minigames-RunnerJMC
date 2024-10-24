@@ -10,16 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51dbc7d74cb54f819beabbc095dab84f, type: 3}
-  m_Name: BarrierJumpObjectives
+  m_Name: SingleRunObjectives
   m_EditorClassIdentifier: 
   objectives:
-  - objective: 20
+  - objective: 100
     reward: 100
-  - objective: 40
-    reward: 200
-  - objective: 80
-    reward: 200
-  - objective: 160
-    reward: 200
-  - objective: 320
+  - objective: 200
     reward: 200

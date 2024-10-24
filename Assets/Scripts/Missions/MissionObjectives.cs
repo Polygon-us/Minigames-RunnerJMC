@@ -7,7 +7,8 @@ public class MissionObjectives : ScriptableObject
 { 
     public List<MissionObjective> objectives;
     
-    public bool IsComplete => index >= objectives.Count;
+    public bool IsObjectiveComplete => GetCurrentObjective().IsComplete;
+    public bool AreAllObjectivesComplete => index > objectives.Count;
 
     private int index = 0;
 
@@ -45,8 +46,8 @@ public class MissionObjectives : ScriptableObject
 [Serializable]
 public class MissionObjective
 {
-    [SerializeField] private int reward;
     [SerializeField] private int objective;
+    [SerializeField] private int reward;
     
     private int progress;
 

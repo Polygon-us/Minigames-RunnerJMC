@@ -43,7 +43,6 @@ public class PlayerData
     public List<string> themes = new List<string>();                // Owned themes.
     public int usedTheme;                                           // Currently used theme.
     public List<HighscoreEntry> highscores = new List<HighscoreEntry>();
-    public List<MissionBase> missions = new List<MissionBase>();
 
 	public string previousName = "Trash Cat";
 
@@ -158,14 +157,13 @@ public class PlayerData
 			NewSave();
         }
 
-        // m_Instance.CheckMissionsCount();
+        MissionManager.Instance.StartMissions();
     }
 
 	static public void NewSave()
 	{
 		m_Instance.characters.Clear();
 		m_Instance.themes.Clear();
-		m_Instance.missions.Clear();
 		m_Instance.characterAccessories.Clear();
 		m_Instance.consumables.Clear();
 
@@ -182,7 +180,7 @@ public class PlayerData
         m_Instance.ftueLevel = 0;
         m_Instance.rank = 0;
 
-        // m_Instance.CheckMissionsCount();
+        MissionManager.Instance.StartMissions();
 
 		m_Instance.Save();
 	}

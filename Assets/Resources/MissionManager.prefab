@@ -49,3 +49,9 @@ MonoBehaviour:
     objectives: {fileID: 11400000, guid: 73124a59e18a3d94589b3565a85bf4e4, type: 2}
   - mission: {fileID: 11400000, guid: 90e7ed4607cce4d41b528c99c6c8ae83, type: 2}
     objectives: {fileID: 11400000, guid: 2ab9c5b9d55fc8944aa49a2c9bfd9775, type: 2}
+  - mission: {fileID: 11400000, guid: fbaac5746f589204799a401f10819f7e, type: 2}
+    objectives: {fileID: 11400000, guid: 3db760cd946da514cbaf8b8874bef178, type: 2}
+  - mission: {fileID: 11400000, guid: f5408a52880887845bb1862db0180863, type: 2}
+    objectives: {fileID: 11400000, guid: cfa5431e52aacf44a93afe32d0969bc0, type: 2}
+  - mission: {fileID: 11400000, guid: 5d1e7214c24ed0644a86d35a27781424, type: 2}
+    objectives: {fileID: 11400000, guid: 388ebf5cec0ed7d478712b7835ad118c, type: 2}
