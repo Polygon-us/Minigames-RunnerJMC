@@ -26,7 +26,7 @@ public class AdsForMission : MonoBehaviour
         newMissionText.gameObject.SetActive(false);
 
         // Only present an ad offer if less than 3 missions.
-        if (PlayerData.instance.missions.Count >= 3)
+        if (MissionManager.Instance.missions.Count >= 3)
         {
             return;
         }
@@ -107,7 +107,7 @@ public class AdsForMission : MonoBehaviour
 
     void AddNewMission()
     {
-        PlayerData.instance.AddMission();
+        // MissionManager.Instance.AddMission();
         PlayerData.instance.Save();
         StartCoroutine(missionUI.Open());
     }

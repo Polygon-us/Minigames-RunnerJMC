@@ -239,7 +239,7 @@ public class TrackManager : MonoBehaviour
 
             Coin.coinPool = new Pooler(currentTheme.collectiblePrefab, k_StartingCoinPoolSize);
 
-            PlayerData.instance.StartRunMissions(this);
+            MissionManager.Instance.StartRunMissions(this);
 
 #if UNITY_ANALYTICS
             AnalyticsEvent.GameStart(new Dictionary<string, object>
@@ -465,7 +465,7 @@ public class TrackManager : MonoBehaviour
 #endif
             }
 
-            PlayerData.instance.UpdateMissions(this);
+            MissionManager.Instance.UpdateMissions(this);
         }
 
         MusicPlayer.instance.UpdateVolumes(speedRatio);

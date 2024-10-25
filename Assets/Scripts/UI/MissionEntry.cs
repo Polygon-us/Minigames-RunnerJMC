@@ -12,12 +12,12 @@ public class MissionEntry : MonoBehaviour
 	public Color notCompletedColor;
 	public Color completedColor;
 
-    public void FillWithMission(MissionBase m, MissionUI owner)
+    public void FillWithMission(MissionBase mission, MissionUI owner)
     {
-        descText.text = m.GetMissionDesc();
-        rewardText.text = m.reward.ToString();
+        descText.text = mission.GetMissionDesc();
+        rewardText.text = mission.MissionObjectives.GetCurrentObjective().Reward.ToString();
 
-        if (m.isComplete)
+        if (mission.IsObjectiveComplete)
         {
             claimButton.gameObject.SetActive(true);
             progressText.gameObject.SetActive(false);
@@ -28,7 +28,7 @@ public class MissionEntry : MonoBehaviour
 			descText.color = Color.white;
 			rewardText.color = Color.white;
 
-			claimButton.onClick.AddListener(delegate { owner.Claim(m); } );
+			claimButton.onClick.AddListener(delegate { owner.Claim(mission); } );
         }
         else
         {
@@ -40,7 +40,7 @@ public class MissionEntry : MonoBehaviour
 			progressText.color = Color.black;
 			descText.color = completedColor;
 
-			progressText.text = ((int)m.progress) + " / " + ((int)m.max);
+			progressText.text = $"{mission.MissionObjectives.GetCurrentObjective().Progress} / {mission.MissionObjectives.GetCurrentObjective().Objective}";
         }
     }
 }

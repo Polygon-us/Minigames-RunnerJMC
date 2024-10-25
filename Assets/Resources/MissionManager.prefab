@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &572994054657243701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4809755666892116069}
+  - component: {fileID: 2816881737903293697}
+  m_Layer: 0
+  m_Name: MissionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4809755666892116069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572994054657243701}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2816881737903293697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572994054657243701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f8a71cfca148c8bebbc05378086dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missions:
+  - mission: {fileID: 11400000, guid: b58b92804220cbd4c8f4dee3d7e176f4, type: 2}
+    objectives: {fileID: 11400000, guid: 73124a59e18a3d94589b3565a85bf4e4, type: 2}
+  - mission: {fileID: 11400000, guid: 90e7ed4607cce4d41b528c99c6c8ae83, type: 2}
+    objectives: {fileID: 11400000, guid: 2ab9c5b9d55fc8944aa49a2c9bfd9775, type: 2}
+  - mission: {fileID: 11400000, guid: fbaac5746f589204799a401f10819f7e, type: 2}
+    objectives: {fileID: 11400000, guid: 3db760cd946da514cbaf8b8874bef178, type: 2}
+  - mission: {fileID: 11400000, guid: f5408a52880887845bb1862db0180863, type: 2}
+    objectives: {fileID: 11400000, guid: cfa5431e52aacf44a93afe32d0969bc0, type: 2}
+  - mission: {fileID: 11400000, guid: 5d1e7214c24ed0644a86d35a27781424, type: 2}
+    objectives: {fileID: 11400000, guid: 388ebf5cec0ed7d478712b7835ad118c, type: 2}

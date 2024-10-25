@@ -9,15 +9,17 @@ public class Pooler
 {
 	protected Stack<GameObject> m_FreeInstances = new Stack<GameObject>();
 	protected GameObject m_Original;
-
+	protected Transform parent; 
+    
 	public Pooler(GameObject original, int initialSize)
 	{
 		m_Original = original;
 		m_FreeInstances = new Stack<GameObject>(initialSize);
+		parent = new GameObject($"--{original.name} Pool--").transform;
 
 		for (int i = 0; i < initialSize; ++i)
 		{
-			GameObject obj = Object.Instantiate(original);
+			GameObject obj = Object.Instantiate(original, parent);
 			obj.SetActive(false);
             m_FreeInstances.Push(obj);
 		}
@@ -30,7 +32,7 @@ public class Pooler
 
 	public GameObject Get(Vector3 pos, Quaternion quat)
 	{
-	    GameObject ret = m_FreeInstances.Count > 0 ? m_FreeInstances.Pop() : Object.Instantiate(m_Original);
+	    GameObject ret = m_FreeInstances.Count > 0 ? m_FreeInstances.Pop() : Object.Instantiate(m_Original, parent);
 
 		ret.SetActive(true);
 		ret.transform.position = pos;
