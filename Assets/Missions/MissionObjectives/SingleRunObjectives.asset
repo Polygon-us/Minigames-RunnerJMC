@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectives:
   - objective: 1200
-    reward: 100
+    reward: 1
   - objective: 2400
-    reward: 200
+    reward: 2
   - objective: 4800
-    reward: 200
+    reward: 3
   - objective: 9600
-    reward: 200
+    reward: 4
   - objective: 19200
-    reward: 200
+    reward: 5

@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: MultiplierObjectives
   m_EditorClassIdentifier: 
   objectives:
-  - objective: 4
-    reward: 100
+  - objective: 3
+    reward: 1
+  - objective: 5
+    reward: 2
   - objective: 8
-    reward: 200
-  - objective: 16
-    reward: 200
-  - objective: 32
-    reward: 200
-  - objective: 64
-    reward: 200
+    reward: 3
+  - objective: 10
+    reward: 4
